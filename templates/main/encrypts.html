@@ -1,0 +1,19 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+{% block title %}Мои шифрования{% endblock %}
+
+{% block content %}
+    {% block breadcrumbs %}
+        <nav><a href="{% url 'main:index' %}">Главная</a> <span>>></span> Мои шифрования</nav>
+    {% endblock %}
+        <h1>Мои шифрования</h1>
+        <h2>Упс! Не можем найти никакой информации :( <br /><br /><a href="{% url 'main:login' %}">Войди</a> или <a href="{% url 'main:register' %}">пройди регистрацию</a>, чтобы сохранить <br />историю шифрований</h2>
+        <ul class="but">
+            <li><a class="pur" href="{% url 'main:index' %}">Вернуться на главную</a></li>
+        </ul>
+
+{% endblock %}
+
+
+

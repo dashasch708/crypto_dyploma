@@ -1,0 +1,53 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+{% block title %}Алгоритм шифрования {{algorithm.title}}{% endblock %}
+
+{% block content %}
+    {% block breadcrumbs %}
+        <nav><a href="{% url 'main:index' %}">Главная</a> <span>>></span> Алгоритм {{algorithm.title}}</nav>
+    {% endblock %}
+        <h1>{{algorithm.title}}</h1><br /><br /><br />
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <ul class="but">
+            <li><button type="submit" class="pur">Зашифровать</button></li>
+        </ul>            
+        </form><br /><br />
+        <form method="post">
+        <textarea id="id_after" readonly>{{result}}</textarea>
+        <ul class="but">
+            <li><a class="pur" href="#" id="copy">Копировать</a></li>
+            <li><a class="pur" href="#" id="clear">Очистить</a></li>
+            <!--li><a class="pur" href="#">Поделиться</a></li-->
+        </ul><br /><br /> 
+        <div class="text">
+            {{algorithm.description|linebreaks}}
+        </div>
+        </form>
+<script>
+const current = window.location.pathname.split("/")[2]
+const pages = ["ecc", "rsa", "dsa", "blowfish", "des", "aes"]
+if(pages.includes(current)) $("#id_key").hide()
+$("#clear").click(function(e){
+    e.preventDefault()
+    $("#id_before").val("")
+    $("#id_after").val("Результат шифрования")
+})
+$("#copy").click(function(e){
+    e.preventDefault()
+    let result  = $("#id_after")
+    let copyText = result.val()
+    navigator.clipboard.writeText(copyText).then(function() {
+          result.val("Шифр скопирован в буфер")
+    }, function(err) {
+          result.val("Ошибка " + err)
+    })
+})
+
+</script>
+{% endblock %}
+
+
+

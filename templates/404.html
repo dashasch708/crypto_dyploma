@@ -1,0 +1,13 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %}Ошибка 404 - страница не найдена{% endblock %}
+
+{% block content %}
+{% block breadcrumbs %}
+    <nav><a href="{% url 'main:index' %}">Главная</a> <span>>></span> Ошибка 404</nav>
+{% endblock %}
+
+
+<h1>Зашифруй</h1>
+<h2>Ошибка 404 - страница не найдена</h2>
+{% endblock %}

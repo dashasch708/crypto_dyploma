@@ -1,0 +1,13 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %}Ошибка 500 - ошибка обработки запроса{% endblock %}
+
+{% block content %}
+{% block breadcrumbs %}
+    <nav><a href="{% url 'main:index' %}">Главная</a> <span>>></span> Ошибка 500</nav>
+{% endblock %}
+
+<h1>Зашифруй</h1>
+<h2>Ошибка 500 - ошибка обработки запроса</h2>
+<h3>Во время обработки<br />запроса возникла ошибка</h3>
+{% endblock %}

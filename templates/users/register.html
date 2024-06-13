@@ -1,0 +1,27 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+{% block title %}Регистрация пользователя{% endblock %}
+
+{% block content %}
+{% block breadcrumbs %}
+    <nav><a href="#">Главная</a> <span>>></span> Регистрация</nav>
+{% endblock %}
+    <h1>Регистрация</h1>
+    <h2>Рады, что ты решил(а) присоединиться к нам! </h2>
+    <form method="post">
+    {% if status %}
+        <h3>{{ status }}</h3>
+    {% else %}
+        {% csrf_token %}
+        {{ form.as_div }}
+        <br />
+        <ul class="but">
+            <li><button type="submit" class="pur">Регистрация</button></li>
+        </ul><br /><br />
+    {% endif %}
+    </form>
+<script>
+setTimeout(() => $("#id_username, #id_password1").val(""), 1000)
+</script>
+{% endblock %}

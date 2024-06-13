@@ -1,0 +1,951 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/inter/Inter-Light.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --color-drk: #121212;
+  --color-drk-50: #12121270;
+  --color-gry: #4e4e4e;
+  --color-pur: #40345c;
+  --color-fil: #8e76b0;
+  --color-lgr: #999;
+  --color-wht: #fff;
+  --color-red: #dc2f3b;
+
+  --font-txt: 'Inter';
+}
+
+::-webkit-scrollbar {
+  width: 0.6vw;
+  background-color: var(--color-fil);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-pur);
+}
+::placeholder {
+  color: #40345c;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--font-txt);
+  color: var(--color-drk);
+  background-size: auto 80%;
+  letter-spacing: 0vw;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-tit);
+}
+
+p {
+  font-family: var(--font-txt);
+}
+form {
+  width: 70%;
+}
+form div.flex {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+}
+form div.input-wrap {
+  position: relative;
+}
+form div.input-wrap svg.eye {
+  fill: var(--color-drk);
+  width: 20px;
+  position: absolute;
+  left: 55%;
+  top: 0.5vw;
+  cursor: pointer;
+}
+form p {
+  margin-top: 1.5vw;
+}
+form div.text {
+  font-size: 1.2vw;
+}
+div.helptext {
+  display: none;
+}
+fieldset {
+  border: 0;
+}
+li.logout {
+  position: relative;
+}
+li.logout button {
+  position: absolute;
+  right: -3vw;
+  top: -0.5vw;
+  border: 0;
+  box-shadow: 0;
+  background: 0;
+}
+li.logout svg {
+  transform: scale(-1, 1);
+  fill: var(--color-pur);
+  width: 2vw;
+  cursor: pointer;
+}
+img.captcha {
+  width: 12vw;
+  margin: 1vh auto;
+}
+label {
+  display: inline-block;
+  font-size: 1.3vw;
+  cursor: pointer;
+}
+blockquote {
+  display: block;
+  font-size: 2vw;
+}
+ul.errorlist {
+  font-size: 1.3vw;
+  padding: 2vw 3vw 3vw 0;
+}
+ul.errorlist li {
+  list-style-type: none;
+  color: var(--color-red);
+}
+input {
+  font-size: 1.3vw;
+  display: block;
+  width: 70%;
+  outline: none;
+  padding: 0.5vw 1vw;
+  margin-bottom: 2vw;
+  box-shadow: none;
+  border: none;
+  color: var(--color-pur);
+  border-bottom: solid 1px var(--color-pur);
+}
+input[type='checkbox'] {
+  width: 20px;
+  margin-top: 5px;
+  transform: scale(1.5);
+}
+textarea {
+  font-family: var(--font-txt);
+  font-size: 1.3vw;
+  display: block;
+  width: 70%;
+  height: 6vw;
+  outline: none;
+  padding: 0.5vw 1vw;
+  margin-bottom: 1vw;
+  box-shadow: none;
+  border: none;
+  color: var(--color-pur);
+  border-bottom: solid 1px var(--color-pur);
+}
+div.dtable {
+  display: table;
+  width: 90%;
+  margin: auto;
+}
+div.dtable div.drow {
+  display: table-row;
+}
+div.dtable div.dcell {
+  display: table-cell;
+}
+div.dtable div.dleft {
+  text-align: left;
+}
+div.dtable div.drght {
+  text-align: right;
+}
+
+a:link,
+a:visited {
+  color: var(--color-drk);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-pur);
+  text-decoration: underline;
+}
+a.active {
+  color: var(--color-pur);
+  text-decoration: underline;
+}
+
+a.wht:link,
+a.wht:visited {
+  color: var(--color-wht);
+  text-decoration: none;
+}
+a.wht:hover {
+  color: var(--color-wht);
+  text-decoration: underline;
+}
+
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+.hidden {
+  display: none;
+}
+
+#nav {
+  display: none;
+}
+
+div.content {
+  position: relative;
+  min-height: 100vh;
+}
+
+header,
+footer,
+section {
+  display: block;
+  width: 100%;
+  font-size: 1vw;
+}
+header {
+  z-index: 3;
+  height: 8vh;
+  margin-top: 2vw;
+}
+header div {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header svg {
+  width: 10vw;
+  fill: var(--color-drk);
+}
+header ul {
+  width: 40%;
+  white-space: nowrap;
+}
+header ul li {
+  display: inline-block;
+  margin: 0 1vw;
+  list-style-type: none;
+  white-space: nowrap;
+}
+header a:link,
+header a:visited {
+  color: var(--color-drk);
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 0.5vw 0.5vw;
+}
+header a:hover {
+  color: var(--color-pur);
+  text-decoration: underline;
+}
+header a.active {
+  color: var(--color-pur);
+  text-decoration: underline;
+}
+
+img.bg {
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  top: -10vw;
+  width: 47vw;
+}
+section {
+  position: relative;
+  min-height: 80vh;
+  margin-top: 9vw;
+}
+section article nav {
+  font-size: 1vw;
+  margin: -2vw 0 1.5vw;
+}
+section article nav a:link,
+section article nav a:visited {
+  color: var(--color-drk-50);
+  text-decoration: none;
+}
+section article nav a:hover {
+  color: var(--color-pur);
+  text-decoration: underline;
+}
+section article nav span {
+  color: var(--color-drk-50);
+}
+section article {
+  width: 60%;
+  display: block;
+  margin: 5vw auto 6vw 5vw;
+}
+section article h1,
+section article h2,
+section article h3 {
+  font-family: var(--font-txt);
+}
+section article h1,
+section article h3 {
+  color: var(--color-pur);
+}
+section article h1 {
+  font-size: 4.5vw;
+  line-height: 90%;
+  letter-spacing: -0.3vw;
+  margin-bottom: -1.5vw;
+}
+section article h2 {
+  color: var(--color-drk);
+  font-size: 1.5vw;
+  line-height: 100%;
+  margin: 3vw 0;
+}
+section article h3 {
+  font-size: 1.1em;
+  margin: 1vh 0;
+  letter-spacing: 0vw;
+}
+section article ul.alg {
+  margin-bottom: 2vw;
+}
+section article ul.alg li {
+  font-size: 1.3vw;
+  display: inline-block;
+  margin: 0.1vw 1.5vw 0.1vw 0;
+  list-style-type: none;
+  border: solid 1px var(--color-drk);
+  padding: 0.2vh 2vw;
+  border-radius: 8vw;
+}
+section article ul.alg li a:hover {
+  text-decoration: none;
+}
+section article ul.but {
+  width: 65%;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1vw;
+}
+section article ul.but li {
+  white-space: nowrap;
+  font-size: 1.3vw;
+  display: inline-block;
+  margin: 1vw 0.5vw 0.1vw 0;
+  list-style-type: none;
+  border: solid 1px var(--color-drk);
+  padding: 0.5vh 1.5vw;
+  border-radius: 8vw;
+}
+section article ul.but li a:hover {
+  text-decoration: none;
+}
+section article h2 a:link,
+section article h2 a:visited {
+  color: var(--color-fil);
+  text-decoration: none;
+}
+section article h2 a:hover {
+  color: var(--color-pur);
+  text-decoration: underline;
+}
+section article a.pur:link,
+section article a.pur:visited {
+  min-width: 150px;
+  display: block;
+  text-align: center;
+  color: var(--color-pur);
+  text-decoration: none;
+  white-space: nowrap;
+}
+section article a.pur:hover {
+  color: var(--color-drk);
+  text-decoration: none;
+}
+section article button.pur {
+  min-width: 150px;
+  font-size: 1.3vw;
+  color: var(--color-pur);
+  text-decoration: none;
+  background: none;
+  border: none;
+  box-shadow: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+section article button.pur:hover {
+  color: var(--color-drk);
+}
+section article ul.pages {
+  text-align: center;
+}
+section article ul.pages li {
+  font-size: 1vw;
+  display: inline-block;
+  margin: 1vw 0.5vw 0.1vw 0;
+  list-style-type: none;
+  border: solid 1px var(--color-drk);
+  padding: 0.5vh 1.5vw;
+  border-radius: 8vw;
+}
+section article ul.pages li.active {
+  background: var(--color-fil);
+}
+section article ul.pages li.active a:link,
+section article ul.pages li.active a:visited {
+  color: var(--color-wht);
+}
+section article ul.profile li {
+  display: block;
+  margin-bottom: 2vw;
+}
+section article aside {
+  margin-top: 3vw;
+}
+section article aside p {
+  font-size: 1.1vw;
+  color: var(--color-fil);
+}
+section article aside ul {
+  width: 100%;
+}
+section article aside ul li {
+  position: relative;
+  font-size: 1.4vw;
+  letter-spacing: -0.1vw;
+  max-width: 27vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0.5vw 2vw 0.5vw 0;
+}
+section article aside ul li.encrypt-key {
+  position: relative;
+  padding-right: 3.5vw;
+}
+section article aside ul li.encrypt-key svg {
+  position: absolute;
+  top: 1.3vw;
+  width: 1.5vw;
+  cursor: pointer;
+  fill: var(--color-pur);
+}
+section article aside ul li.encrypt-key svg.open {
+  right: 2vw;
+}
+section article aside ul li.encrypt-key svg.copy {
+  right: 0;
+}
+section article aside ul li.encrypt-result {
+  position: relative;
+  padding-right: 3.5vw;
+}
+section article aside ul li.encrypt-result svg {
+  position: absolute;
+  top: 1.3vw;
+  width: 1.5vw;
+  cursor: pointer;
+  fill: var(--color-pur);
+}
+section article aside ul li.encrypt-result svg.open {
+  right: 2vw;
+}
+section article aside ul li.encrypt-result svg.copy {
+  right: 0;
+}
+section article aside ul li b.result-copy {
+  position: absolute;
+  left: 5vw;
+  top: 0;
+  font-size: 0.7em;
+  padding: 0.2vw 0.3vw;
+  background: var(--color-fil);
+  letter-spacing: 1px;
+  color: var(--color-wht);
+}
+section article aside ul li svg:hover {
+  fill: var(--color-red);
+}
+section article aside ul li span {
+  font-size: 0.7em;
+  letter-spacing: 0vw;
+  display: block;
+}
+section article aside ul li b {
+  font-weight: 300;
+}
+section article aside ul li b.active {
+  color: var(--color-fil);
+}
+section article aside ul li.open {
+  white-space: normal;
+}
+section article aside ul li.open b {
+  display: block;
+  width: 100%;
+  word-wrap: anywhere;
+}
+section article div.dtable {
+  margin: -2vw auto 0 0;
+  width: 90%;
+}
+section article div.dtable div.dleft {
+  padding-right: 5vw;
+}
+section article div.dtable div.dleft a {
+  font-size: 1.4vw;
+  display: block;
+  margin-bottom: 0.5vw;
+  white-space: nowrap;
+}
+section article div.dtable div.drght {
+  text-align: left;
+}
+section article div.dtable div.drght form {
+  width: 100%;
+}
+section article div.dtable div.drght ul {
+  width: 100%;
+}
+section article div.dtable div.drght ul li {
+  position: relative;
+}
+section article div.dtable div.drght ul li#password svg {
+  display: none;
+  fill: var(--color-drk);
+  width: 20px;
+  position: absolute;
+  right: -2vw;
+  cursor: pointer;
+}
+section article div.dtable div.drght ul li#password b {
+  font-weight: 200;
+}
+
+footer {
+  font-size: 0.9vw;
+  z-index: 3;
+  position: relative;
+  height: 12vw;
+  background: var(--color-drk);
+  color: var(--color-wht);
+}
+footer svg {
+  fill: var(--color-wht);
+  width: 10vw;
+  margin: 1.5vw 0;
+}
+footer div.dtable {
+  margin: 2vh auto;
+}
+
+@media (max-width: 800px) {
+  body {
+    overflow-x: hidden;
+    margin-top: 12vh;
+  }
+  div.dtable {
+    display: block;
+  }
+  div.dtable div.drow {
+    display: block;
+  }
+  div.dtable div.dcell {
+    display: block;
+  }
+  div.dtable div.dleft {
+    text-align: left;
+  }
+  div.dtable div.drght {
+    text-align: left;
+  }
+
+  li.logout button {
+    position: absolute;
+    right: 55vw;
+    top: 10vh;
+  }
+  li.logout svg {
+    transform: scale(-1, 1);
+    fill: var(--color-wht);
+    width: 15vw;
+  }
+
+  form {
+    width: 90%;
+    margin: auto;
+  }
+  form div.flex {
+    width: 90%;
+    margin: 3vh auto 0;
+    justify-content: space-between;
+  }
+  form p {
+    margin-top: 2vh;
+    font-size: 3vw;
+  }
+  form div.text {
+    font-size: 3vw;
+  }
+  img.captcha {
+    width: 40vw;
+    margin: 2vh auto;
+  }
+  label {
+    font-size: 4vw;
+    width: 90%;
+  }
+  ul.errorlist {
+    font-size: 4vw;
+  }
+  input {
+    font-size: 4vw;
+    width: 90%;
+    padding: 1vh 2vw;
+    margin: 0 auto 2vh;
+  }
+  input[type='checkbox'] {
+    width: 20px;
+    margin-top: 5px;
+    transform: scale(1.5);
+  }
+  textarea {
+    font-size: 4vw;
+    width: 90%;
+    height: 15vh;
+    padding: 1vh 2vw;
+    margin: 3vh auto;
+  }
+
+  header {
+    z-index: 3;
+    position: fixed;
+    top: -2vw;
+    left: 0;
+    right: 0;
+    height: 8vh;
+    background: var(--color-wht);
+  }
+  header svg {
+    position: absolute;
+    left: 2vw;
+    top: 1vh;
+    width: 30vw;
+  }
+  header div {
+    position: relative;
+    width: 90%;
+    margin: 2vh auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  header ul {
+    display: none;
+    font-size: 4vw;
+    width: 100%;
+    height: 17vh;
+    padding-top: 5vh;
+    text-align: center;
+    white-space: wrap;
+    background: var(--color-pur);
+    position: fixed;
+    top: 8vh;
+  }
+  header ul li {
+    display: block;
+    margin: 2vh 1vw;
+    font-size: 1.3em;
+    list-style-type: none;
+    white-space: nowrap;
+  }
+  header ul.align-right {
+    text-align: center;
+    height: 80vh;
+    z-index: 3;
+    position: fixed;
+    top: 30vh;
+  }
+  header a:link,
+  header a:visited {
+    color: var(--color-wht);
+  }
+  header a:hover {
+    color: var(--color-lgr);
+  }
+
+  #nav {
+    display: block;
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    right: 2vw;
+    top: -10px;
+    margin: 15px auto;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+  #nav span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    border-radius: 3px;
+    width: 100%;
+    background: var(--color-pur);
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+  #nav span:nth-child(1) {
+    top: 0px;
+  }
+  #nav span:nth-child(2) {
+    top: 10px;
+  }
+  #nav span:nth-child(3) {
+    top: 20px;
+  }
+  #nav.open span:nth-child(1) {
+    top: 10px;
+    transform: rotate(135deg);
+  }
+  #nav.open span:nth-child(2) {
+    opacity: 0;
+    left: -30px;
+  }
+  #nav.open span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-135deg);
+  }
+
+  img.bg {
+    display: none;
+  }
+
+  div.content {
+    position: relative;
+    min-height: 70vh;
+  }
+
+  section {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    position: relative;
+    margin-top: 10vh;
+  }
+  section article {
+    width: 90%;
+    margin: 0 auto;
+  }
+  section article nav {
+    font-size: 3vw;
+    margin: 0 auto 3vh 3vw;
+  }
+
+  section article h1 {
+    font-size: 8vw;
+    text-align: center;
+  }
+  section article h2 {
+    font-size: 5vw;
+    text-align: center;
+    margin: 7vw auto;
+    line-height: 110%;
+  }
+  section article h3 {
+    font-size: 4vw;
+    text-align: center;
+  }
+  section article ul.alg {
+    text-align: center;
+    margin-bottom: 4vh;
+  }
+  section article ul.alg li {
+    font-size: 5vw;
+    display: inline-block;
+    margin: 1vh 2vw 1vh 0;
+    list-style-type: none;
+    padding: 5px 4vw;
+  }
+
+  section article div.dtable {
+    width: 100%;
+    margin: auto;
+  }
+  section article div.dtable div.dleft {
+    width: 100%;
+    padding-right: 0;
+    margin-top: 2vh;
+    display: flex;
+    justify-content: space-around;
+  }
+  section article div.dtable div.dleft a {
+    font-size: 4vw;
+    display: inline-block;
+    margin-bottom: 2vw;
+    white-space: nowrap;
+  }
+  section article div.dtable div.drght {
+    width: 100%;
+  }
+  section article div.dtable div.drght form {
+    width: 100%;
+  }
+  section article div.dtable div.drght ul {
+    width: 100%;
+  }
+  section article div.dtable div.drght ul li {
+    position: relative;
+  }
+
+  section article ul.but {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 5vh auto 3vh;
+  }
+  section article ul.but li {
+    font-size: 4vw;
+    margin: 1vw 2vw 1vw;
+    padding: 1vh 2.5vw;
+    white-space: nowrap;
+  }
+  section article ul.but li a:hover {
+    text-decoration: none;
+  }
+  section article a.pur:link,
+  section article a.pur:visited {
+    font-size: 4vw;
+    min-width: 120px;
+    width: 45%;
+  }
+  section article button.pur {
+    min-width: 120px;
+    font-size: 4vw;
+  }
+  section article ul.pages {
+    text-align: center;
+    margin-top: 5vh;
+  }
+  section article ul.pages li {
+    font-size: 4vw;
+    margin: 1vw 0.5vw;
+    padding: 0.5vh 1vw;
+    min-width: 8vw;
+  }
+  section article ul.pages li.active {
+    background: var(--color-fil);
+  }
+  section article ul.pages li.active a:link,
+  section article ul.pages li.active a:visited {
+    color: var(--color-wht);
+  }
+
+  section article aside p {
+    font-size: 5vw;
+  }
+  section article aside ul {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  section article aside ul li {
+    font-size: 5vw;
+    letter-spacing: -0.1vw;
+    max-width: 80vw;
+    text-align: left;
+    margin: 3vw 2vw;
+  }
+  section article aside ul li.encrypt-key {
+    position: relative;
+    padding-right: 15vw;
+    width: 80vw;
+  }
+  section article aside ul li.encrypt-key svg {
+    position: absolute;
+    top: 0;
+    width: 7vw;
+    cursor: pointer;
+    fill: var(--color-pur);
+  }
+  section article aside ul li.encrypt-key svg.open {
+    right: 10vw;
+  }
+  section article aside ul li.encrypt-key svg.copy {
+    right: 0;
+  }
+  section article aside ul li.encrypt-result {
+    position: relative;
+    padding-right: 15vw;
+    width: 80vw;
+  }
+  section article aside ul li.encrypt-result svg {
+    position: absolute;
+    top: 0;
+    width: 7vw;
+    cursor: pointer;
+    fill: var(--color-pur);
+  }
+  section article aside ul li.encrypt-result svg.open {
+    right: 10vw;
+  }
+  section article aside ul li.encrypt-result svg.copy {
+    right: 0;
+  }
+  section article aside ul li svg:hover {
+    fill: var(--color-red);
+  }
+  section article aside ul li span {
+    font-size: 0.7em;
+    letter-spacing: 0vw;
+    display: block;
+  }
+  section article aside ul li b {
+    font-weight: 300;
+  }
+  section article aside ul li b.active {
+    color: var(--color-fil);
+  }
+  section article aside ul li.open {
+    white-space: normal;
+  }
+  section article aside ul li.open b {
+    display: block;
+    width: 100%;
+    word-wrap: anywhere;
+  }
+
+  footer {
+    font-size: 3.5vw;
+    height: auto;
+    position: relative;
+    padding: 4vh 0;
+    margin-top: 10vh;
+  }
+  footer svg {
+    width: 30vw;
+  }
+  footer div.dtable {
+    width: 80%;
+  }
+}

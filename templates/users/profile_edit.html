@@ -1,0 +1,32 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+{% block title %}Редактирование личных данных{% endblock %}
+
+{% block content %}
+    {% block breadcrumbs %}
+        <nav><a href="{% url 'main:index' %}">Главная</a> <span>>></span> <a href="{% url 'main:profile' %}">Личный кабинет</a> <span>>></span> Изменить данные</nav>
+    {% endblock %}
+        <div class="dtable">
+            <div class="drow">
+                <div class="dcell dleft">
+                    {% include 'includes/profile_menu.html' %}
+                </div>
+                <div class="dcell drght">
+                <aside>
+                    <form method="post">
+                         {% csrf_token %}
+                         {{ form.as_div }}
+                         <br />
+                         <ul class="but">
+                             <li><button type="submit" class="pur">Сохранить</button></li>
+                         </ul><br /><br />
+                    </form>
+                </aside>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+
+

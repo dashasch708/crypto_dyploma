@@ -1,0 +1,11 @@
+django-cleanup
+Pillow
+django-simple-captcha
+django-encrypted-field
+passlib
+pycryptodomex
+arc4
+cryptography
+python-camellia
+pycryptodome
+django-social-share

@@ -1,0 +1,28 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+{% block title %}Обратная связь{% endblock %}
+
+{% block content %}
+{% block breadcrumbs %}
+    <nav><a href="{% url 'main:index' %}">Главная</a> <span>>></span> Обратная связь</nav>
+{% endblock %}
+<h1>Обратная связь</h1>
+<form method="post">
+    <h2>Свои пожелания и предложения по любым улучшениям, добавлению новых методов шифрования или доп. функционала можно отправить через форму
+    <br /><br />Мы ответим вам в течение нескольких дней!</h2>
+    {% if status %}
+        <div class="flex">
+            <a class="pur" href="{% url 'main:contacts' %}">Создать еще одно обращение</a>
+            <a class="pur" href="{% url 'main:index' %}">Вернуться на главную</a>
+    {% else %}
+    {% csrf_token %}
+    {{ form.as_div }}
+    <br />
+    <ul class="but">
+        <li><button type="submit" class="pur">Отправить</button></li>
+        <li style="border:none;"><a class="pur" href="{% url 'main:index' %}">Вернуться на главную</a></li>
+    </ul><br /><br />
+    {% endif %}
+</form>
+{% endblock %}

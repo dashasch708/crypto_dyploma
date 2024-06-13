@@ -1,0 +1,27 @@
+1{% extends 'layout/basic.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block title %}Профиль пользователя{% endblock %}
+
+{% block content %}
+<h1>Здравствуйте,
+<span>
+  {% if reason.first_name and reason.last_name %}
+    {{ reason.first_name }} {{ reason.last_name }}
+  {% else %}
+    {{ reason.username }}
+  {% endif %}
+</span>!</h1>
+<blockquote>
+<p style="text-align:center;">Данные указанные в профиле будут показываться в ваших объявлениях</p>
+</blockquote>
+<form class="d-flex gap-2 flex-wrap justify-content-center">
+    <a class="btn btn-warning" href="{% url 'main:profile_list' %}">Ваши объявления</a>
+    <a class="btn btn-warning" href="{% url 'main:favorite' %}">Избранные объявления</a>
+    <a class="btn btn-warning" href="{% url 'main:profile_unit_add' %}">Добавить объявление</a>
+    <a class="btn btn-warning" href="{% url 'main:profile_edit' %}">Настроить профиль</a>
+    <a class="btn btn-warning" href="{% url 'main:password_edit' %}">Изменить пароль</a>
+    <a class="btn btn-warning" href="{% url 'main:profile_comment' %}?view=0">Комментарии к вашим объявлениям</a>
+</form>
+{% endblock %}

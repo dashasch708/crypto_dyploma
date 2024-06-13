@@ -1,0 +1,20 @@
+{% extends 'layout/basic.html' %} {% block title %}Авторизация пользователя{%
+endblock %} {% block content %} {% block breadcrumbs %}
+<nav><a href="{% url 'main:index' %}">Главная</a> <span>>></span> Вход</nav>
+{% endblock %}
+
+<h1>Вход</h1>
+<h2>Рады, что ты решил(а) вернуться!</h2>
+<form method="post">
+  {% if user.is_authenticated %}
+  <h3>Ты уже выполнил вход</h3>
+  {% else %} {% csrf_token %} {{ form.as_div }}
+  <input type="hidden" name="next" value="/account/profile" />
+  <ul class="but">
+    <li style="border: none">
+      <a href="{% url 'reset_password' %}">Напомнить пароль</a>
+    </li>
+    <li><button type="submit" class="pur">Войти</button></li>
+  </ul>
+</form>
+{% endif %} {% endblock %}
